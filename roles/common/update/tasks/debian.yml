@@ -10,6 +10,7 @@
   apt:
     name: "*"
     state: latest
+
 - name: Remove useless packages from the cache
   apt:
     autoclean: yes

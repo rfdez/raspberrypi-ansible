@@ -13,4 +13,7 @@
   copy:
     src: "{{ role_path }}/files/02periodic"
     dest: "{{ unattended_upgrades_path }}"
+    owner: root
+    group: root
+    mode: 0644
     force: yes

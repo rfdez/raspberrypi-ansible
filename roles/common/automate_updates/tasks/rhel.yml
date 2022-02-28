@@ -12,6 +12,9 @@
     regex: "^download_updates"
     insertafter: "^#download_updates"
     line: "download_updates = yes"
+    group: root
+    owner: root
+    mode: 0644
     create: yes
 
 - name: Make sure "apply_updates" set to "yes"
@@ -20,6 +23,9 @@
     regex: "^apply_updates"
     insertafter: "^#apply_updates"
     line: "apply_updates = yes"
+    group: root
+    owner: root
+    mode: 0644
     create: yes
 
 - name: Turn on the "dnf-automatic" service

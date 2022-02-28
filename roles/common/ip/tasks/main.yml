@@ -7,6 +7,9 @@
     regex: "^interface {{ ansible_default_ipv4.interface }}"
     insertafter: "^#interface {{ ansible_default_ipv4.interface }}"
     line: "interface {{ ansible_default_ipv4.interface }}"
+    group: netdev
+    owner: root
+    mode: 0664
     create: yes
 
 - name: Ensure Network "static ip_address" is configured
@@ -15,6 +18,9 @@
     regex: "^static ip_address="
     insertafter: "^#static ip_address="
     line: "static ip_address={{ ansible_default_ipv4.address }}"
+    group: netdev
+    owner: root
+    mode: 0664
     create: yes
 
 - name: Ensure Network "static routers" is configured
@@ -23,6 +29,9 @@
     regex: "^static routers="
     insertafter: "^#static routers="
     line: "static routers={{ ansible_default_ipv4.gateway }}"
+    group: netdev
+    owner: root
+    mode: 0664
     create: yes
 
 - name: Ensure Network "static domain_name_servers" is configured
@@ -31,6 +40,9 @@
     regex: "^static domain_name_servers="
     insertafter: "^#static domain_name_servers="
     line: "static domain_name_servers={{ ansible_default_ipv4.gateway }}"
+    group: netdev
+    owner: root
+    mode: 0664
     create: yes
 
 - name: Reboot host

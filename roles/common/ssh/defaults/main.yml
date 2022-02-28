@@ -2,5 +2,4 @@
 # file: roles/common/ssh/defaults/main.yml
 
 ssh_port: 22
-nopasswd_path: /etc/sudoers.d/010_pi-nopasswd
 sshd_config_path: /etc/ssh/sshd_config
