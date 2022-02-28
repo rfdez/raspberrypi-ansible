@@ -6,7 +6,7 @@ SHELL := $(shell which bash)
 # Test if the dependencies we need to run this Makefile are installed
 ANSIBLE 		:= $(shell command -v ansible-galaxy ansible-playbook)
 KUBECTL 		:= $(shell command -v kubectl)
-YAMLLINT 		:= $(shell command -v yamllint)
+ANSIBLE_LINT	:= $(shell command -v ansible-test)
 
 default: requirements
 ifdef env
@@ -27,7 +27,7 @@ else
 endif
 
 lint: deps
-	@yamllint .
+	@ansible-lint -p site.yml
 
 requirements: deps
 	@echo -e "🎁 Installing ansible collections..."
@@ -39,11 +39,11 @@ ifndef ANSIBLE
 	@echo "Ansible is not available."
 	@exit 1
 endif
-ifndef KUBECTL
-	@echo "kubectl is not available."
+ifndef ANSIBLE_LINT
+	@echo "ansible-lint is not available. Please install it using 'pip3 install "ansible-lint[yamllint]"'."
 	@exit 1
 endif
-ifndef YAMLLINT
-	@echo "Yamllint is not available. Please install it using 'pip install --user yamllint'."
+ifndef KUBECTL
+	@echo "kubectl is not available."
 	@exit 1
 endif

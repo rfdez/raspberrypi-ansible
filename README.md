@@ -21,7 +21,7 @@ Use `make env=<environment>` to build the environment. The environment is the na
 
 With `make ping env=<environment>` you can check the connection with the hosts defined in the inventory file.
 
-Run `make lint` to check the code style using [yamllint](https://github.com/adrienverge/yamllint).
+Run `make lint` to check the code style using [ansible-lint](https://github.com/ansible-community/ansible-lint) and [yamllint](https://github.com/adrienverge/yamllint).
 
 ---
 
