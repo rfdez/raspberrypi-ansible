@@ -1,0 +1,4 @@
+---
+# file: roles/cluster/k0s/worker/defaults/main.yml
+
+k0s_config_dir: /etc/k0s

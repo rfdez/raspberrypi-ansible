@@ -1,0 +1,5 @@
+---
+# file: requirements.yml
+
+collections:
+  - name: community.general

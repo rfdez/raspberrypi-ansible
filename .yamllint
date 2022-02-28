@@ -1,0 +1,24 @@
+---
+# file: .yamllint
+
+ignore: |
+  /.github/
+
+extends: default
+
+locale: en_US.UTF-8
+
+rules:
+  line-length:
+    max: 180
+    level: warning
+  indentation:
+    indent-sequences: whatever
+  braces:
+    min-spaces-inside: 1
+    max-spaces-inside: 1
+  brackets:
+    min-spaces-inside: 1
+    max-spaces-inside: 1
+  truthy:
+    allowed-values: [ 'true', 'false', 'yes', 'no' ]

@@ -1,0 +1,13 @@
+---
+# file: roles/cluster/download/tasks/main.yml
+
+- name: Download k0s binary for "amd64" arch
+  include_task: amd.yml
+  when: ansible_facts.architecture == "x86_64"
+
+- name: Download k0s binary for "arm64" arch
+  include_task: arm.yml
+  when:
+    - ( ansible_facts.architecture is search("arm") and
+        ansible_facts.userspace_bits == "64" ) or
+      ansible_facts.architecture is search("aarch64")

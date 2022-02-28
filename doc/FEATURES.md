@@ -1,0 +1,19 @@
+# Bootstrap features
+
+- Keep your system updated
+- Automate update packages process
+  - Debian: unattended-upgrades
+  - Red Hay Enterprise Linux: dnf-automatic
+- Make sudo require a password
+- SSH
+  - Prevent root login
+  - Change the default port
+  - Use SSH keys instead of passwords
+- Configure Fail2Ban
+- Configure a firewall
+  - ufw 
+- Backup your system
+  - https://raspberrytips.com/backup-raspberry-pi/
+- Get a static IP-address
+- Install a Kubernetes cluster
+  - k0s

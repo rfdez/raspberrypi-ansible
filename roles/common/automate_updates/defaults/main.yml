@@ -1,0 +1,5 @@
+---
+# file: roles/common/automate_updates/defaults/main.yml
+
+unattended_upgrades_path: /etc/apt/apt.conf.d/02periodic
+dnf_automatic_path: /etc/dnf/automatic.conf

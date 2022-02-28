@@ -1,0 +1,43 @@
+---
+# file: roles/common/ip/tasks/main.yml
+
+- name: Ensure Network "interface" is configured
+  lineinfile:
+    path: "{{ dhcpcd_config_path }}"
+    regex: "^interface {{ ansible_default_ipv4.interface }}"
+    insertafter: "^#interface {{ ansible_default_ipv4.interface }}"
+    line: "interface {{ ansible_default_ipv4.interface }}"
+    create: yes
+
+- name: Ensure Network "static ip_address" is configured
+  lineinfile:
+    path: "{{ dhcpcd_config_path }}"
+    regex: "^static ip_address="
+    insertafter: "^#static ip_address="
+    line: "static ip_address={{ ansible_default_ipv4.address }}"
+    create: yes
+
+- name: Ensure Network "static routers" is configured
+  lineinfile:
+    path: "{{ dhcpcd_config_path }}"
+    regex: "^static routers="
+    insertafter: "^#static routers="
+    line: "static routers={{ ansible_default_ipv4.gateway }}"
+    create: yes
+
+- name: Ensure Network "static domain_name_servers" is configured
+  lineinfile:
+    path: "{{ dhcpcd_config_path }}"
+    regex: "^static domain_name_servers="
+    insertafter: "^#static domain_name_servers="
+    line: "static domain_name_servers={{ ansible_default_ipv4.gateway }}"
+    create: yes
+
+- name: Reboot host
+  reboot:
+    connect_timeout: "{{ reboot_connect_timeout }}"
+    msg: "Reboot initiated for static IP configuration"
+    post_reboot_delay: "{{ reboot_post_reboot_delay }}"
+    pre_reboot_delay: "{{ reboot_pre_reboot_delay }}"
+    reboot_timeout: "{{ reboot_timeout }}"
+    test_command: "{{ reboot_test_command }}"

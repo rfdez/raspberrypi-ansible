@@ -1,0 +1,10 @@
+---
+# file: roles/common/ip/defaults/main.yml
+
+dhcpcd_config_path: /etc/dhcpcd.conf
+
+reboot_connect_timeout: 5
+reboot_pre_reboot_delay: 0
+reboot_timeout: 3600
+reboot_post_reboot_delay: 60
+reboot_test_command: uptime

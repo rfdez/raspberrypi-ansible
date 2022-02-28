@@ -1,0 +1,32 @@
+---
+# file: roles/common/automate_updates/tasks/rhel.yml
+
+- name: Install latest version of "dnf-automatic"
+  yum:
+    name: dnf-automatic
+    state: present
+
+- name: Make sure "download_updates" set to "yes"
+  lineinfile:
+    path: "{{ dnf_automatic_path }}"
+    regex: "^download_updates"
+    insertafter: "^#download_updates"
+    line: "download_updates = yes"
+    create: yes
+
+- name: Make sure "apply_updates" set to "yes"
+  lineinfile:
+    path: "{{ dnf_automatic_path }}"
+    regex: "^apply_updates"
+    insertafter: "^#apply_updates"
+    line: "apply_updates = yes"
+    create: yes
+
+- name: Turn on the "dnf-automatic" service
+  service:
+    name: dnf-automatic
+    enabled: yes
+    args:
+      - --now
+      - dnf-automatic.timer
+    state: started

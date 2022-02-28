@@ -1,0 +1,5 @@
+---
+# file: roles/fail2ban/configure/defaults/main.yml
+
+fail2ban_conf_path: /etc/fail2ban/fail2ban.local
+jail_conf_path: /etc/fail2ban/jail.local

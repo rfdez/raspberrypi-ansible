@@ -1,0 +1,7 @@
+---
+# file: roles/common/update/tasks/rhel.yml
+
+- name: Upgrade all packages to the latest version
+  yum:
+    name: "*"
+    state: latest

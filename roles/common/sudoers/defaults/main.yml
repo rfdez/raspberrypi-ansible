@@ -1,0 +1,4 @@
+---
+# file: roles/common/sudoers/defaults/main.yml
+
+sudoers_path: /etc/sudoers.d/010_pi-nopasswd

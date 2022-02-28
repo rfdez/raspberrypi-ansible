@@ -1,0 +1,10 @@
+---
+# file: roles/common/automate_updates/tasks/main.yml
+
+- name: Automate RHEL Family OS System Updates
+  include_tasks: rhel.yml
+  when: ansible_os_family == "RedHat"
+
+- name: Automate Debian Family OS System Updates
+  include_tasks: debian.yml
+  when: ansible_os_family == "Debian"

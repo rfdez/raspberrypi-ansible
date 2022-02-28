@@ -1,0 +1,16 @@
+---
+# file: roles/common/automate_updates/tasks/debian.yml
+
+- name: Install latest version of "unattended-upgrades" and "apt-listchanges" ignoring "install-recommends"
+  apt:
+    pkg:
+      - unattended-upgrades
+      - apt-listchanges
+    state: latest
+    install_recommends: no
+
+- name: Create periodic updates with the "02periodic" file
+  copy:
+    src: "{{ role_path }}/files/02periodic"
+    dest: "{{ unattended_upgrades_path }}"
+    force: yes

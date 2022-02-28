@@ -1,0 +1,13 @@
+---
+# file: site.yml
+
+- hosts: all
+  name: Bootstrap all servers
+  become: yes
+  roles:
+    - common/update
+    - common/automate_updates
+    - common/sudoers
+    - common/ssh
+
+- import_playbook: rpiservers.yml

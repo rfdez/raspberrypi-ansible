@@ -1,0 +1,6 @@
+*.code-workspace
+.vscode
+.ansible_facts_cache
+*.log
+artifacts/*
+production
