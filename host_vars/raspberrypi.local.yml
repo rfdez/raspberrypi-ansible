@@ -1,4 +1,2 @@
 ---
-# file: host_vars/raspberrypi.local.yml
-
 ssh_port: 1112

@@ -1,6 +1,4 @@
 ---
-# file: roles/firewall/enable/tasks/main.yml
-
 - name: Enable "ufw" service
   service:
     name: ufw

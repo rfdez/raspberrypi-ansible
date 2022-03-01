@@ -1,6 +1,4 @@
 ---
-# file: roles/firewall/configure/tasks/debian.yml
-
 - name: Install latest version of 'ufw' ignoring 'install-recommends'
   apt:
     name: ufw

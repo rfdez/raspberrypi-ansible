@@ -1,6 +1,4 @@
 ---
-# file: roles/common/ip/defaults/main.yml
-
 dhcpcd_config_path: /etc/dhcpcd.conf
 
 reboot_connect_timeout: 5

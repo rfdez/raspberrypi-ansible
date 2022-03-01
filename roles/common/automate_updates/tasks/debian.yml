@@ -1,6 +1,4 @@
 ---
-# file: roles/common/automate_updates/tasks/debian.yml
-
 - name: Install latest version of "unattended-upgrades" and "apt-listchanges" ignoring "install-recommends"
   apt:
     pkg:

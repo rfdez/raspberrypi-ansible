@@ -1,6 +1,4 @@
 ---
-# file: roles/fail2ban/enable/tasks/main.yml
-
 - name: Enable "fail2ban" service
   service:
     name: fail2ban

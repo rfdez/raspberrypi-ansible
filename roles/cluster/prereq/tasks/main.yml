@@ -1,6 +1,4 @@
 ---
-# file: roles/cluster/prereq/tasks/main.yml
-
 - name: Create k0s Directories
   become: true
   file:

@@ -1,6 +1,4 @@
 ---
-# file: roles/cluster/k0s/worker/tasks/main.yml
-
 - name: Write the k0s token file on worker
   template:
     src: worker-token.j2

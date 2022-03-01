@@ -1,6 +1,4 @@
 ---
-# file: roles/common/update/tasks/main.yml
-
 - name: RHEL Family OS System Updates
   include_tasks: rhel.yml
   when: ansible_os_family == "RedHat"

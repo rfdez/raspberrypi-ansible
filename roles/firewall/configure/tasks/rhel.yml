@@ -1,6 +1,4 @@
 ---
-# file: roles/firewall/configure/tasks/rhel.yml
-
 - name: Install latest version of 'ufw'
   yum:
     name: ufw

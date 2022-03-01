@@ -1,6 +1,4 @@
 ---
-# file: roles/cluster/k0s/controller/tasks/main.yml
-
 - name: "Write the k0s token file on controller"
   template:
     src: controller-token.j2

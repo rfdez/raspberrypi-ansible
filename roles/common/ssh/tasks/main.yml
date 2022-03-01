@@ -1,6 +1,4 @@
 ---
-# file: roles/common/ssh/tasks/main.yml
-
 - name: Ensure disable Root SSH login
   lineinfile:
     path: "{{ sshd_config_path }}"

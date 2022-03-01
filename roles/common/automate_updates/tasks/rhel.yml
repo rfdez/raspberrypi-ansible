@@ -1,6 +1,4 @@
 ---
-# file: roles/common/automate_updates/tasks/rhel.yml
-
 - name: Install latest version of "dnf-automatic"
   yum:
     name: dnf-automatic

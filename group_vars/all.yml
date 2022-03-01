@@ -1,6 +1,4 @@
 ---
-# file: groups_vars/all.yml
-
 # k0s_version: v1.22.4+k0s.1
 # artifacts_dir: "{{ inventory_dir }}/artifacts"
 # systemd_dest: /etc/systemd/system

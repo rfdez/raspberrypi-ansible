@@ -1,6 +1,4 @@
 ---
-# file: roles/common/update/tasks/debian.yml
-
 - name: Update all packages to the latest version
   apt:
     update_cache: yes

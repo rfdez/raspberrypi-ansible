@@ -1,14 +1,12 @@
 ---
-# file: roles/fail2ban/configure/tasks/main.yml
-
 - name: Create custom configuration file for 'Fail2ban'
   copy:
-    src: '{{ role_path }}/files/fail2ban.conf'
-    dest: '{{ fail2ban_conf_path }}'
+    src: "{{ role_path }}/files/fail2ban.conf"
+    dest: "{{ fail2ban_conf_path }}"
     force: yes
 
 - name: Create custom configuration files for 'Jail Fail2ban'
   copy:
-    src: '{{ role_path }}/files/jail.conf'
-    dest: '{{ jail_conf_path }}'
+    src: "{{ role_path }}/files/jail.conf"
+    dest: "{{ jail_conf_path }}"
     force: yes

@@ -1,6 +1,4 @@
 ---
-# file: roles/common/sudoers/tasks/main.yml
-
 - name: Ensure make sudo require a password
   template:
     src: "{{ role_path }}/templates/sudoers.j2"

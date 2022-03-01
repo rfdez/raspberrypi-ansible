@@ -1,6 +1,4 @@
 ---
-# file: roles/fail2ban/install/tasks/rhel.yml
-
 - name: Install latest version of 'Fail2ban'
   yum:
     name:

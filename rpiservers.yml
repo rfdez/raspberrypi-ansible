@@ -1,6 +1,4 @@
 ---
-# file: rpiservers.yml
-
 - hosts: rpiservers
   name: Bootstrap Raspberry Pi servers
   become: yes

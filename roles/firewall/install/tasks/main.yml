@@ -1,6 +1,4 @@
 ---
-# file: roles/firewall/install/tasks/main.yml
-
 - name: Install "ufw" on RHEL Family OS
   include_tasks: rhel.yml
   when: ansible_os_family == "RedHat"

@@ -1,6 +1,4 @@
 ---
-# file: roles/common/ip/tasks/main.yml
-
 - name: Ensure Network "interface" is configured
   lineinfile:
     path: "{{ dhcpcd_config_path }}"

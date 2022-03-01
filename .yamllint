@@ -1,6 +1,4 @@
 ---
-# file: .yamllint
-
 ignore: |
   /.github/
 
@@ -21,4 +19,4 @@ rules:
     min-spaces-inside: 1
     max-spaces-inside: 1
   truthy:
-    allowed-values: [ 'true', 'false', 'yes', 'no' ]
+    allowed-values: ["true", "false", "yes", "no"]

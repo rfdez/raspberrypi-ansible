@@ -1,6 +1,4 @@
 ---
-# file: site.yml
-
 - hosts: all
   name: Bootstrap all servers
   become: yes
