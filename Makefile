@@ -6,7 +6,7 @@ SHELL := $(shell which bash)
 # Test if the dependencies we need to run this Makefile are installed
 ANSIBLE 		:= $(shell command -v ansible-galaxy ansible-playbook)
 KUBECTL 		:= $(shell command -v kubectl)
-ANSIBLE_LINT	:= $(shell command -v ansible-test)
+ANSIBLE_LINT	:= $(shell command -v ansible-lint)
 
 default: requirements
 ifdef env
