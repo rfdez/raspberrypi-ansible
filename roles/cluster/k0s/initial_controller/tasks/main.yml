@@ -6,7 +6,7 @@
 
 - name: Setup custom environment variables for systemd unit
   include_role:
-    name: env_setup
+    name: cluster/env_setup
 
 - name: Enable and check k0s service
   systemd:
@@ -72,7 +72,7 @@
   replace:
     path: ~{{ ansible_user }}/k0s-kubeconfig.yml
     regexp: "localhost"
-    replace: "{{ ansible_host }}"
+    replace: "{{ ansible_default_ipv4.address }}"
 
 - name: Copy kubeconfig
   become: false
