@@ -28,7 +28,7 @@
       register: default_k0s_config
       command: k0s default-config > {{ k0s_config_dir }}/k0s.yaml
       changed_when: false
-    - name: Store default k0f config
+    - name: Store default k0s config
       copy:
         dest: "{{ k0s_config_dir }}/k0s.yaml"
         content: "{{ default_k0s_config.stdout }}"
