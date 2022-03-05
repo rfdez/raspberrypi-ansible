@@ -9,6 +9,7 @@
     owner: root
     mode: 0664
     create: yes
+  register: interface_configured
 
 - name: Ensure Network "static ip_address" is configured
   lineinfile:
@@ -20,6 +21,7 @@
     owner: root
     mode: 0664
     create: yes
+  register: static_ip_address_configured
 
 - name: Ensure Network "static routers" is configured
   lineinfile:
@@ -31,6 +33,7 @@
     owner: root
     mode: 0664
     create: yes
+  register: static_routers_configured
 
 - name: Ensure Network "static domain_name_servers" is configured
   lineinfile:
@@ -42,6 +45,7 @@
     owner: root
     mode: 0664
     create: yes
+  register: static_domain_name_servers_configured
 
 - name: Reboot host
   reboot:
@@ -51,3 +55,8 @@
     pre_reboot_delay: "{{ reboot_pre_reboot_delay }}"
     reboot_timeout: "{{ reboot_timeout }}"
     test_command: "{{ reboot_test_command }}"
+  when:
+    - interface_configured.changed
+    - static_ip_address_configured.changed
+    - static_routers_configured.changed
+    - static_domain_name_servers_configured.changed
