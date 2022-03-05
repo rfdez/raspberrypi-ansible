@@ -5,7 +5,6 @@ SHELL := $(shell which bash)
 
 # Test if the dependencies we need to run this Makefile are installed
 ANSIBLE 		:= $(shell command -v ansible-galaxy ansible-playbook)
-KUBECTL 		:= $(shell command -v kubectl)
 ANSIBLE_LINT	:= $(shell command -v ansible-lint)
 
 default: requirements
@@ -13,6 +12,16 @@ ifdef env
 	@echo -e "🚨 Start Development Environment Setup"
 	@ansible-playbook -i $(env) site.yml -K
 	@echo -e "✅ Development Environment Setup Completed"
+else
+	@echo -e "❌ No Environment Found."
+	@exit 1
+endif
+
+reset: requirements
+ifdef env
+	@echo -e "🚨 Reset Development Environment Setup"
+	@ansible-playbook -i $(env) reset.yml -K
+	@echo -e "✅ Development Environment Reset Completed"
 else
 	@echo -e "❌ No Environment Found."
 	@exit 1
@@ -27,7 +36,7 @@ else
 endif
 
 lint: deps
-	@ansible-lint -p site.yml
+	@ansible-lint -p site.yml reset.yml
 
 requirements: deps
 	@echo -e "🎁 Installing ansible collections..."
@@ -41,9 +50,5 @@ ifndef ANSIBLE
 endif
 ifndef ANSIBLE_LINT
 	@echo "ansible-lint is not available. Please install it using 'pip3 install "ansible-lint[yamllint]"'."
-	@exit 1
-endif
-ifndef KUBECTL
-	@echo "kubectl is not available."
 	@exit 1
 endif
