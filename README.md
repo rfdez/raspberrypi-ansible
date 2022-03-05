@@ -19,6 +19,8 @@ Write the storage with the configured operating system and insert the SD card in
 
 Use `make env=<environment>` to build the environment. The environment is the name of the file that contains the Ansible inventory. Check the `example` file for an example. This command will apply the `site.yml` Ansible playbook. It also will check the dependencies that the project requires and the requirements, Ansible collections and roles.
 
+To reset the environment, use `make reset env=<environment>`. It will apply the `reset.yml` playbook to remove the `k0s` cluster installation.
+
 With `make ping env=<environment>` you can check the connection with the hosts defined in the inventory file.
 
 Run `make lint` to check the code style using [ansible-lint](https://github.com/ansible-community/ansible-lint) and [yamllint](https://github.com/adrienverge/yamllint).
