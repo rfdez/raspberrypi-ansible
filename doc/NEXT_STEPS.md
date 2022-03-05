@@ -5,5 +5,6 @@
 - Install and Setup Argo CD
   - Argo CD CLI installation [guide](https://argo-cd.readthedocs.io/en/stable/cli_installation/).
   - Follow this [guide](https://argo-cd.readthedocs.io/en/stable/getting_started).
+- Create the neccessary Kubernetes Secrets.
 - Create a [Git Repository](https://github.com/rfdez/raspberrypi-kubernetes.git) to create a Argo CD Application from a Git repository.
 - Sync (Deploy) The Application
