@@ -1,6 +1,13 @@
 *.code-workspace
 .vscode
-.ansible_facts_cache
 *.log
+
+.ansible_facts_cache
 artifacts/*
+
+group_vars/*
+!group_vars/example.yml
+host_vars/*
+!host_vars/example.yml
+
 production

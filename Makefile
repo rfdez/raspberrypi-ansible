@@ -39,9 +39,10 @@ lint: deps
 	@ansible-lint -p site.yml reset.yml
 
 requirements: deps
-	@echo -e "🎁 Installing ansible collections..."
+	@echo -e "🎁 Installing ansible collections and roles..."
 	@ansible-galaxy collection install -r requirements.yml
-	@echo -e "✅ Ansible collections installed"
+	@ansible-galaxy role install -r requirements.yml
+	@echo -e "✅ Ansible collections and roles installed"
 
 deps:
 ifndef ANSIBLE

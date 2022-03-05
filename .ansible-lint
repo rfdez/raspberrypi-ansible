@@ -1,6 +1,14 @@
+---
 exclude_paths:
   - .cache/
   - .github/
 
 skip_list:
-    - package-latest
+  - package-latest
+
+enable_list:
+  - yaml
+
+kinds:
+  - playbook: "**/*.{yml,yaml}"
+  - yaml: "**/*.{yml,yaml}"

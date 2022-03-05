@@ -28,3 +28,5 @@ Run `make lint` to check the code style using [ansible-lint](https://github.com/
 ---
 
 See the [FEATURES.md](doc/FEATURES.md) for more information.
+
+Follow the [NEXT_STEPS.md](doc/NEXT_STEPS.md) file recommendations for the next steps.

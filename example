@@ -1,15 +1,15 @@
 [initial_controller]
-raspberrypi1.local   ansible_connection=ssh  ansible_user=pi
+raspberrypi1.local
 
 [controller]
-raspberrypi2.local   ansible_connection=ssh  ansible_user=pi
-raspberrypi3.local   ansible_connection=ssh  ansible_user=pi
+raspberrypi2.local
+raspberrypi3.local
 
 [worker]
-raspberrypi4.local   ansible_connection=ssh  ansible_user=pi
-raspberrypi5.local   ansible_connection=ssh  ansible_user=pi
-raspberrypi6.local   ansible_connection=ssh  ansible_user=pi
-raspberrypi7.local   ansible_connection=ssh  ansible_user=pi
+raspberrypi4.local
+raspberrypi5.local
+raspberrypi6.local
+raspberrypi7.local
 
 [rpiservers:children]
 initial_controller

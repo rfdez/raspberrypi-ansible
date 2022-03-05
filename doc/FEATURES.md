@@ -17,3 +17,5 @@
 - Get a static IP-address
 - Install a Kubernetes cluster
   - k0s
+- Remove the Kubernetes cluster
+  - k0s
