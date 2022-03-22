@@ -1,21 +1,19 @@
 # Bootstrap features
 
-- Keep your system updated
-- Automate update packages process
-  - Debian: unattended-upgrades
-  - Red Hay Enterprise Linux: dnf-automatic
-- Make sudo require a password
-- SSH
-  - Prevent root login
-  - Change the default port
-  - Use SSH keys instead of passwords
-- Configure Fail2Ban
+- Install packages
+  <!-- - Vim -->
+  - Htop
+- Keep your system updated with automatic updates
+  - [Unattended upgrades](https://wiki.debian.org/UnattendedUpgrades)
+- Configure an intrusion prevention software
+  - [Fail2Ban](https://www.fail2ban.org/wiki/index.php/Main_Page)
 - Configure a firewall
-  - ufw 
-- Backup your system
-  - https://raspberrytips.com/backup-raspberry-pi/
-- Get a static IP-address
-- Install a Kubernetes cluster
-  - k0s
-- Remove the Kubernetes cluster
-  - k0s
+  - [UFW - Uncomplicated Firewall](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29)
+- Reliably rebooting
+  - [Watchdog](https://sourceforge.net/projects/watchdog/)
+- Logs information
+	- [Logwatch](https://ubuntu.com/server/docs/logwatch)
+- Manage a Kubernetes cluster
+  - Install [k0s](https://k0sproject.io/)
+  - Create k0s cluster
+  - Remove k0s cluster

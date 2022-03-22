@@ -1,5 +1,9 @@
 # Raspberry PI 4 Setup
 
+> 💡 **First steps**: View the [First steps](doc/FIRT_STEPS.md) doc for instructions on how to install the operating system and boot the Raspberry PI 4 by an USB drive.
+
+> 💡 **Recomendations**: View the [Recommendations](doc/RECOMMENDATIONS.md) doc for instructions on how to improve the security of the Raspberry PI 4.
+
 ## Getting Started
 Install an operating system withouth an user interface.
 
