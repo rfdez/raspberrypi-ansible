@@ -132,4 +132,3 @@ In addition, add each of these modules to your `/etc/modules-load.d/modules.conf
 - Automatic backups to restore the system (https://raspberrytips.com/backup-raspberry-pi)
 - Two-factor SSH authentication
 - Set Hostname
-- Restore your Dotfiles following the instructions in the [Dotfiles](https://github.com/rfdez/raspberrypi-dotfiles) repository.
