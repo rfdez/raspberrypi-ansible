@@ -1,0 +1,38 @@
+---
+- name: Create a "Kernel modules" symbolic link
+  ansible.builtin.file:
+    src: "{{ modules_path }}"
+    dest: "{{ modules_conf_path }}"
+    owner: root
+    group: root
+    state: link
+
+- name: Load "overlay" kernel module
+  lineinfile:
+    path: "{{ modules_conf_path }}"
+    regex: "^modprobe overlay"
+    insertafter: "^#modprobe overlay"
+    line: "modprobe overlay"
+    group: root
+    owner: root
+    mode: 0664
+
+- name: Load "nf_conntrack" kernel module
+  lineinfile:
+    path: "{{ modules_conf_path }}"
+    regex: "^modprobe nf_conntrack"
+    insertafter: "^#modprobe nf_conntrack"
+    line: "modprobe nf_conntrack"
+    group: root
+    owner: root
+    mode: 0664
+
+- name: Load "br_netfilter" kernel module
+  lineinfile:
+    path: "{{ modules_conf_path }}"
+    regex: "^modprobe br_netfilter"
+    insertafter: "^#modprobe br_netfilter"
+    line: "modprobe br_netfilter"
+    group: root
+    owner: root
+    mode: 0664

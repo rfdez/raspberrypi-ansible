@@ -1,0 +1,3 @@
+---
+modules_path: /etc/modules
+modules_conf_path: /etc/modules-load.d/modules.conf

@@ -1,4 +1,8 @@
 ---
+- name: k0s install controller --config {{ k0s_config_dir }}/k0s.yaml {{ extra_args | default(omit) }}
+  debug:
+    msg: "{{ k0s_install_controller_cmd }}"
+
 - name: Create k0s initial controller service with install command
   register: install_initial_controller_cmd
   command: k0s install controller --config {{ k0s_config_dir }}/k0s.yaml {{ extra_args | default(omit) }}

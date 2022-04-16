@@ -1,0 +1,16 @@
+---
+- name: Install latest version of "cgroup-lite", "cgroup-tools" and "cgroupfs-mount" ignoring 'install-recommends'
+  apt:
+    pkg:
+      - cgroup-lite
+      - cgroup-tools
+      - cgroupfs-mount
+    install_recommends: no
+
+- name: Configure "Memory CGroup" Kernel parameters
+  lineinfile:
+    path: "{{ cmdline_path }}"
+    regex: "^cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1"
+    insertafter: "^#cgroup_enable=cpuset #cgroup_enable=memory #cgroup_memory=1"
+    line: "cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1"
+  register: configuration
