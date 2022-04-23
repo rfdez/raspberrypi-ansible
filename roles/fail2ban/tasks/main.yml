@@ -1,7 +1,7 @@
 ---
 - name: Install package
   include_role:
-    - utils/install_package
+    name: utils/install_package
   vars:
     packages:
       - fail2ban
@@ -17,6 +17,4 @@
     src: "{{ role_path }}/files/jail.conf"
     dest: "{{ jail_conf_path }}"
     force: yes
-
-- name: Enable "fail2ban" service
   notify: restart fail2ban

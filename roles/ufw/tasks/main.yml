@@ -1,7 +1,7 @@
 ---
 - name: Install package
   include_role:
-    - utils/install_package
+    name: utils/install_package
   vars:
     packages:
       - ufw
@@ -14,6 +14,7 @@
     group: root
     mode: 0644
     force: yes
+  notify: set logging
 
 - name: Deny incoming traffic on all ports
   ufw:
@@ -48,9 +49,4 @@
     rule: allow
     port: '443'
     proto: tcp
-
-- name: Set logging
-  notify: set logging
-
-- name: Enable "ufw" service
   notify: enable ufw

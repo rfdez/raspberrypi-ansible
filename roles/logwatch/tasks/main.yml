@@ -1,7 +1,7 @@
 ---
 - name: Install package
   include_role:
-    - utils/install_package
+    name: utils/install_package
   vars:
     packages:
       - logwatch
