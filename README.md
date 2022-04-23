@@ -38,6 +38,13 @@ With `make ping env=<environment>` you can check the connection with the hosts d
 
 Run `make lint` to check the code style using [ansible-lint](https://github.com/ansible-community/ansible-lint) and [yamllint](https://github.com/adrienverge/yamllint).
 
+## Want to throw away your cluster and start all over?
+
+```ShellSession
+$ multipass delete $(multipass list --format csv | grep 'k0s' | cut -d',' -f1)
+$ multipass purge
+```
+
 ---
 
 See the [FEATURES.md](doc/FEATURES.md) for more information.
