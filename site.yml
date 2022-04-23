@@ -3,14 +3,14 @@
   name: Bootstrap all servers
   become: yes
   roles:
-    - role: utils/install_package
-      packages:
-        - apt-transport-https
-        - watchdog
-    - role: unattended_upgrades
-    - role: fail2ban
-    - role: ufw
-    - role: logwatch
+    # - role: utils/install_package
+    #   packages:
+    #     - apt-transport-https
+    #     - watchdog
+    # - role: unattended_upgrades
+    # - role: fail2ban
+    # - role: ufw
+    # - role: logwatch
     - role: k0s/common/download
       tags: download
     - role: k0s/common/prereq

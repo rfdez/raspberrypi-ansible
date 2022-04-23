@@ -1,5 +1,5 @@
 ---
-- name: Install package
+- name: Install "fail2ban" package
   include_role:
     name: utils/install_package
   vars:

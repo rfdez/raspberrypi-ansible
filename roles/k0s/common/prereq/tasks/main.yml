@@ -14,7 +14,7 @@
 
 - name: Enable shell completion for k0s
   become: true
-  command: k0s completion bash > /etc/bash_completion.d/k0s
+  shell: k0s completion bash > /etc/bash_completion.d/k0s
 
 - name: Write the custom k0s config file
   template:

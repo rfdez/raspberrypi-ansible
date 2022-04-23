@@ -2,7 +2,3 @@
 - name: enable ufw
   ufw:
     state: enabled
-
-- name: set logging
-  ufw:
-    logging: "on"

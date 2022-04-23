@@ -1,8 +1,8 @@
 ---
 - name: Initialize single node controller
   include_tasks: single.yml
-  when: k0s_single_node_controller
+  when: k0s_single_node
 
 - name: Initialize multi node controller
   include_tasks: multinode.yml
-  when: not k0s_single_node_controller
+  when: not k0s_single_node

@@ -5,6 +5,6 @@
 tools/multipass-cloud-init.yml
 
 .ansible_facts_cache
-artifacts/*
+artifacts/
 
 production

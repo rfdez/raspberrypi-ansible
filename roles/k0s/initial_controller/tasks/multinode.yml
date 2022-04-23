@@ -24,7 +24,7 @@
 
 - name: Create worker join token
   register: worker_join_token
-  command: k0s token create --role worker  --config {{ k0s_config_dir }}/k0s.yaml
+  command: k0s token create --role worker
   changed_when: worker_join_token | length > 0
 
 - name: Store worker join token
@@ -43,7 +43,7 @@
 
 - name: Create controller join token
   register: controller_join_token
-  command: k0s token create --role controller --config {{ k0s_config_dir }}/k0s.yaml
+  command: k0s token create --role controller
   changed_when: controller_join_token | length > 0
 
 - name: Store controller join token
