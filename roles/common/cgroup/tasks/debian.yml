@@ -1,8 +1,0 @@
----
-- name: Install latest version of "cgroup-lite", "cgroup-tools" and "cgroupfs-mount" ignoring 'install-recommends'
-  apt:
-    pkg:
-      - cgroup-lite
-      - cgroup-tools
-      - cgroupfs-mount
-    install_recommends: no

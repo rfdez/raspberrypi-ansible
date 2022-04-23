@@ -1,7 +1,0 @@
----
-- name: Install latest version of 'Fail2ban'
-  yum:
-    name:
-      - epel-release
-      - fail2ban
-    state: present

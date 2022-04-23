@@ -1,6 +1,0 @@
----
-- name: Install latest version of 'ufw' ignoring 'install-recommends'
-  apt:
-    name: ufw
-    state: latest
-    install_recommends: no

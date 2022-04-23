@@ -1,0 +1,15 @@
+[initial_controller]
+k0s-1 ansible_host=10.253.99.229
+
+[controller]
+k0s-2 ansible_host=10.253.99.221
+k0s-3 ansible_host=10.253.99.143
+
+[worker]
+k0s-4 ansible_host=10.253.99.41
+k0s-5 ansible_host=10.253.99.107
+k0s-6 ansible_host=10.253.99.29
+k0s-7 ansible_host=10.253.99.182
+
+[all:vars]
+ansible_user=k0s

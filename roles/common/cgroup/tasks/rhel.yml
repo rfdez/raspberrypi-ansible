@@ -1,8 +1,0 @@
----
-- name: Install latest version of "cgroup-lite", "cgroup-tools" and "cgroupfs-mount"
-  yum:
-    name:
-      - cgroup-lite
-      - cgroup-tools
-      - cgroupfs-mount
-    state: present

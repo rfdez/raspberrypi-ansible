@@ -1,8 +1,0 @@
----
-- name: Install "ufw" on RHEL Family OS
-  include_tasks: rhel.yml
-  when: ansible_os_family == "RedHat"
-
-- name: Install "ufw" on Debian Family OS
-  include_tasks: debian.yml
-  when: ansible_os_family == "Debian"

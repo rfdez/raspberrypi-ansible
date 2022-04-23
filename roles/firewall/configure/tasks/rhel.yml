@@ -1,5 +1,0 @@
----
-- name: Install latest version of 'ufw'
-  yum:
-    name: ufw
-    state: present

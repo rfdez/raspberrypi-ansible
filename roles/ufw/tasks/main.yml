@@ -1,0 +1,56 @@
+---
+- name: Install package
+  include_role:
+    - utils/install_package
+  vars:
+    packages:
+      - ufw
+
+- name: Making Sure IPv6 is Enabled
+  copy:
+    src: "{{ role_path }}/files/ufw"
+    dest: "{{ ufw_default_path }}"
+    owner: root
+    group: root
+    mode: 0644
+    force: yes
+
+- name: Deny incoming traffic on all ports
+  ufw:
+    default: deny
+    direction: incoming
+
+- name: Allow outgoing traffic on all ports
+  ufw:
+    default: allow
+    direction: outgoing
+
+- name: Allow SSH connections
+  ufw:
+    rule: allow
+    port: '"{{ ansible_ssh_port }}"'
+    proto: tcp
+
+- name: Limit SSH connections
+  ufw:
+    rule: limit
+    port: '"{{ ansible_ssh_port }}"'
+    proto: tcp
+
+- name: Allow HTTP connections
+  ufw:
+    rule: allow
+    port: '80'
+    proto: tcp
+
+- name: Allow HTTPS connections
+  ufw:
+    rule: allow
+    port: '443'
+    proto: tcp
+
+- name: Set logging
+  notify: set logging
+
+- name: Enable "ufw" service
+  notify: enable ufw

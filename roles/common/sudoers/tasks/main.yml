@@ -1,9 +1,0 @@
----
-- name: Ensure make sudo require a password
-  template:
-    src: "{{ role_path }}/templates/sudoers.j2"
-    dest: "{{ sudoers_path }}"
-    owner: root
-    group: root
-    mode: "0644"
-    force: yes

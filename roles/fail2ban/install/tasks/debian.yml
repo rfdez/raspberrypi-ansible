@@ -1,5 +1,0 @@
----
-- name: Install latest version of 'Fail2ban' ignoring 'install-recommends'
-  apt:
-    name: fail2ban
-    install_recommends: no

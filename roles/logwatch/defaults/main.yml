@@ -1,0 +1,3 @@
+---
+logwatch_temorary_directory: /var/cache/logwatch
+logwatch_configuration_file: /etc/logwatch/conf/logwatch.conf

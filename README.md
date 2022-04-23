@@ -4,24 +4,33 @@
 
 > 💡 **Recomendations**: View the [Recommendations](doc/RECOMMENDATIONS.md) doc for instructions on how to improve the security of the Raspberry PI 4.
 
-## Getting Started
-Install an operating system withouth an user interface.
+## Example with multipass
 
-![Raspberry Pi OS Lite (64-BIT)](doc/assets/01-os.png "Raspberry Pi OS Lite")
+For the quick creation of virtual machines, I have added a script that provisions a bunch of nodes via [multipass](https://github.com/canonical/multipass) and another small Python script that generates an Ansible inventory from the created instances.
 
-Configure Advanced Options.
+Steps:
 
-![Raspberry Pi Advanced Options (64-BIT)](doc/assets/02-advanced-options.png "Raspberry Pi Advanced Options")
+Create 5 instances with multipass and import your ssh public key with cloud-init (`multipass_create_instances.sh`):
 
-Configure Persistent Settings.
+```ShellSession
+$ ./tools/multipass_create_instances.sh
+Create cloud-init to import ssh key...
+[1/5] Creating instance k0s-1 with multipass...
+Launched: k0s-1
+...
+Name                    State             IPv4             Image
+k0s-1                   Running           192.168.64.32    Ubuntu 20.04 LTS
+k0s-2                   Running           192.168.64.33    Ubuntu 20.04 LTS
+k0s-3                   Running           192.168.64.56    Ubuntu 20.04 LTS
+k0s-4                   Running           192.168.64.57    Ubuntu 20.04 LTS
+k0s-5                   Running           192.168.64.58    Ubuntu 20.04 LTS
+```
 
-![Raspberry Pi Persistent Settings (64-BIT)](doc/assets/03-persistent-settings.png "Raspberry Pi Persistent Settings")
-
-Write the storage with the configured operating system and insert the SD card into the Raspberry Pi.
+Generate your Ansible inventory like the `example` file, you will only need to add the IP address of the created instances.
 
 ## Cheet Sheet
 
-Use `make env=<environment>` to build the environment. The environment is the name of the file that contains the Ansible inventory. Check the `example` file for an example. This command will apply the `site.yml` Ansible playbook. It also will check the dependencies that the project requires and the requirements, Ansible collections and roles.
+Use `make env=<environment>` to build the environment. The environment is the name of the file that contains the Ansible inventory. Check the `sample` file for an example. This command will apply the `site.yml` Ansible playbook. It also will check the dependencies that the project requires and the requirements, Ansible collections and roles.
 
 To reset the environment, use `make reset env=<environment>`. It will apply the `reset.yml` playbook to remove the `k0s` cluster installation.
 

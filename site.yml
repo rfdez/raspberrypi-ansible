@@ -3,9 +3,39 @@
   name: Bootstrap all servers
   become: yes
   roles:
-    - common/update
-    - common/automate_updates
-    - common/sudoers
-    - common/ssh
+    - role: utils/install_package
+      packages:
+        - apt-transport-https
+        - watchdog
+    - role: unattended_upgrades
+    - role: fail2ban
+    - role: ufw
+    - role: logwatch
+    - role: k0s/common/download
+      tags: download
+    - role: k0s/common/prereq
+      tags: prereq
 
-- import_playbook: rpiservers.yml
+- hosts: initial_controller
+  name: Bootstrap initial controller
+  gather_facts: yes
+  become: yes
+  roles:
+    - role: k0s/initial_controller
+      tags: init
+
+- hosts: controller
+  name: Configure k0s control plane nodes
+  gather_facts: yes
+  become: yes
+  serial: 1
+  roles:
+    - role: k0s/controller
+      tags: server
+
+- hosts: worker
+  name: Configure k0s worker nodes
+  become: yes
+  roles:
+    - role: k0s/worker
+      tags: worker

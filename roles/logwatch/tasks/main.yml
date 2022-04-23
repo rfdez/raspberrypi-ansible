@@ -1,0 +1,19 @@
+---
+- name: Install package
+  include_role:
+    - utils/install_package
+  vars:
+    packages:
+      - logwatch
+
+- name: Create "logwatch" temporary directory
+  file:
+    path: "{{ logwatch_temporary_directory }}"
+    state: directory
+    mode: 0755
+
+- name: Create custom configuration file for 'Logwatch'
+  copy:
+    src: "{{ role_path }}/files/logwatch.conf"
+    dest: "{{ logwatch_configuration_file }}"
+    force: yes
