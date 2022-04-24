@@ -8,3 +8,4 @@ tools/multipass-cloud-init.yml
 artifacts/
 
 production
+local

@@ -10,6 +10,9 @@
 		- [Key-Based Authentication](#key-based-authentication)
 		- [Change the default port](#change-the-default-port)
 	- [Set static IP address](#set-static-ip-address)
+	- [Configure Dynamic DNS client (ddclient)](#configure-dynamic-dns-client-ddclient)
+		- [Set up Dynamic DNS service provider (Google Domains)](#set-up-dynamic-dns-service-provider-google-domains)
+		- [Set up a client program on your gateway, host, or server](#set-up-a-client-program-on-your-gateway-host-or-server)
 	- [Required for k0s](#required-for-k0s)
 		- [Configure CGroup](#configure-cgroup)
 		- [Swap (Optional)](#swap-optional)
@@ -72,6 +75,39 @@ Set the router to always assign the same IP to any device with that MAC address
 To find your Pi's MAC address type:
 ```
 ifconfig
+```
+
+## Configure Dynamic DNS client (ddclient)
+
+This steps are based on this [article](https://support.google.com/domains/answer/6147083).
+
+### Set up Dynamic DNS service provider (Google Domains)
+
+- Sign in to Google Domains with your Google account and select the name of the domain you want to use.
+- Go to the `DNS` tab, and click on the `Show advanced settings` button, and then click on the `Manage Dynamic DNS` button and create a new record.
+
+### Set up a client program on your gateway, host, or server
+
+- Install ddclient with `sudo apt-get install ddclient`.
+- Edit the `/etc/ddclient.conf` file with a text editor.
+
+	It should look similar to this, but with your DNS credentials we obtained earlier and the domain would be depending on what you set up on the dynamic DNS section.
+
+	```
+	ssl=yes
+	protocol=googledomains
+	use=web
+	login=GOOGLEDNSUSERNAME
+	password=GOOGLEDNSPASSWORD
+	yourdomain.com # comma-separated list of domains
+	```
+
+- Test the configuration by running `sudo ddclient -daemon=0 -debug -verbose -noquiet`.
+
+> 💡 **Tip:**  If you run the ddclient daemon again, it will compare its IP address with the address it cached (not with the one we changed using the GET request above); therefore will think its IP hasn’t changed. So you need to delete its cache and then run the update sequence as below.
+
+```bash
+sudo rm -f /var/cache/ddclient/ddclient.cache
 ```
 
 ## Required for k0s
