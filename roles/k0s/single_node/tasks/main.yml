@@ -40,10 +40,10 @@
   become: false
   fetch:
     src: "~{{ ansible_user }}/k0s-kubeconfig.yml"
-    dest: "{{ artifacts_dir }}/k0s-kubeconfig.yml"
+    dest: "{{ artifacts_dir }}/k0s-kubeconfig-single.yml"
     flat: yes
     validate_checksum: no
 
 - name: "print kubeconfig command"
   debug:
-    msg: "To use Cluster: copy the content in {{ artifacts_dir }}/k0s-kubeconfig.yml to your kubeconfig file."
+    msg: "To use Cluster: copy the content in {{ artifacts_dir }}/k0s-kubeconfig-single.yml to your kubeconfig file."

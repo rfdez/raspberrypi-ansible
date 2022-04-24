@@ -10,15 +10,6 @@
   ufw:
     logging: "on"
 
-# - name: Making Sure IPv6 is Enabled
-#   copy:
-#     src: "{{ role_path }}/files/ufw"
-#     dest: "{{ ufw_default_path }}"
-#     owner: root
-#     group: root
-#     mode: 0644
-#     force: yes
-
 - name: Deny incoming traffic on all ports
   ufw:
     default: deny
@@ -29,27 +20,23 @@
     default: allow
     direction: outgoing
 
-- name: Allow SSH connections
+- name: Allow certain tcp connections
   ufw:
     rule: allow
-    port: "{{ ansible_ssh_port | quote }}"
+    port: "{{ item }}"
     proto: tcp
+  with_items:
+    - "80"
+    - "443"
+    - "9443"
+    - "6443"
+    - 2379:2380
+    - "10250"
+    - 30000:32767
 
 - name: Limit SSH connections
   ufw:
     rule: limit
-    port: "{{ ansible_ssh_port | quote }}"
-    proto: tcp
-
-- name: Allow HTTP connections
-  ufw:
-    rule: allow
-    port: "80"
-    proto: tcp
-
-- name: Allow HTTPS connections
-  ufw:
-    rule: allow
-    port: "443"
+    port: "{{ ansible_ssh_port | mandatory | quote }}"
     proto: tcp
   notify: enable ufw

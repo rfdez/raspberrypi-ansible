@@ -17,7 +17,6 @@
     name: k0s/common/env_setup
 
 - name: "Enable and check k0s service"
-  become: true
   systemd:
     name: k0scontroller
     daemon_reload: yes
@@ -28,4 +27,4 @@
   wait_for:
     host: localhost
     port: 6443
-    timeout: 600
+    timeout: 180

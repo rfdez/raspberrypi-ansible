@@ -3,6 +3,6 @@
   apt:
     name: "{{ item }}"
     state: latest
-    # install_recommends: no
+    install_recommends: no
     update_cache: true
   with_items: "{{ packages | mandatory }}"

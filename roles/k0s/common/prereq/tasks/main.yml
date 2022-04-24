@@ -1,6 +1,5 @@
 ---
 - name: Create k0s Directories
-  become: true
   file:
     path: "{{ item }}"
     state: directory
@@ -13,8 +12,10 @@
     - "{{ k0s_libexec_dir }}"
 
 - name: Enable shell completion for k0s
-  become: true
   shell: k0s completion bash > /etc/bash_completion.d/k0s
+
+- name: Enable shell completion for kubectl
+  shell: kubectl completion bash | tee /etc/bash_completion.d/kubectl > /dev/null
 
 - name: Write the custom k0s config file
   template:
@@ -26,7 +27,6 @@
   when: k0s_use_custom_config
 
 - name: Generate default k0s config file
-  become: true
   block:
     - name: Create default k0s config
       register: default_k0s_config
