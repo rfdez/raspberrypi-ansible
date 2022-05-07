@@ -54,6 +54,8 @@ Run `passwd` to change the default password.
 
 ### Key-Based Authentication
 
+> ⚠️ **Important**: Before that change is made, you must copy the SSH key from your computer to the server. For example, you can use the following command: `ssh-copy-id -i ~/.ssh/id_rsa.pub YOUR_USERNAME_HERE@YOUR_SERVICE_HERE`.
+
 - Change this line in the SSH configuration file we saw before:
 	```
 	PasswordAuthentication no
